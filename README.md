@@ -1,3 +1,6 @@
+# PDF-downloader-website
+Dies ist ein Projekt für die Schule. Dies ist eine Website, welche mit react geschrieben wird, bei der man PDFs herunterladen und hochladen kann. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
