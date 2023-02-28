@@ -1,5 +1,5 @@
-# PDF-downloader-website
-Dies ist ein Projekt für die Schule. Dies ist eine Website, welche mit React Typescript geschrieben wird, bei der man PDFs herunterladen und hochladen kann. 
+# Watery
+Dies ist ein Projekt für die Schule. Dies ist eine Website, welche mit React Typescript geschrieben wird, bei der man eine Auswahl einer breiten Palette von Wasser hat. 
 
 # Getting Started with Create React App
 

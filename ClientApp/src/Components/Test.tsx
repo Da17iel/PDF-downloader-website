@@ -13,6 +13,7 @@ const Test = (): JSX.Element => {
   return (
     <>
       <div className="flex justify-center items-center h-80 w-80">
+        <h1 className="text-lg font-bold mr-12">Watery Water</h1>
         <button onClick={handleClick} className="bg-blue-500 w-12 h-10 rounded-md border-sm">{count}</button>
       </div>
     </>
