@@ -1,3 +1,12 @@
+@font-face {font-family: "Posterama";
+  src: url("//db.onlinewebfonts.com/t/03d33d67fd07fb2d31001eb9f90d58bf.eot"); 
+  src: url("//db.onlinewebfonts.com/t/03d33d67fd07fb2d31001eb9f90d58bf.eot?#iefix") format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/03d33d67fd07fb2d31001eb9f90d58bf.woff2") format("woff2"), 
+  url("//db.onlinewebfonts.com/t/03d33d67fd07fb2d31001eb9f90d58bf.woff") format("woff"), 
+  url("//db.onlinewebfonts.com/t/03d33d67fd07fb2d31001eb9f90d58bf.ttf") format("truetype"), 
+  url("//db.onlinewebfonts.com/t/03d33d67fd07fb2d31001eb9f90d58bf.svg#Posterama") format("svg"); 
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
