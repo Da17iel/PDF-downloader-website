@@ -7,7 +7,64 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model my_table {
-  id   Int    @id @default(autoincrement())
-  name String @db.VarChar(50)
+model City {
+  city_id   Int        @id @default(autoincrement())
+  city_name String     @db.VarChar(255)
+  Customer  Customer[]
+}
+
+model Country {
+  country_id   Int        @id @default(autoincrement())
+  country_name String     @db.VarChar(255)
+  Customer     Customer[]
+}
+
+model Customer {
+  customer_id           Int        @id @default(autoincrement())
+  customer_firstName    String     @db.VarChar(255)
+  customer_lastName     String     @db.VarChar(255)
+  customer_tel          String     @db.Char(50)
+  customer_city         City       @relation(fields: [customer_cityId], references: [city_id])
+  customer_cityId       Int
+  customer_country      Country    @relation(fields: [customer_countryId], references: [country_id])
+  customer_countryId    Int
+  customer_dateOfBirth  DateTime   @db.Date()
+  customer_loginData    loginDaten @relation(fields: [customer_loginDatenId], references: [id])
+  customer_loginDatenId Int
+  Order                 Order[]
+}
+
+model loginDaten {
+  id                  Int        @id @default(autoincrement())
+  email               String     @unique @db.VarChar(255)
+  loginDaten_password String     @db.VarChar(255)
+  Customer            Customer[]
+}
+
+model Order {
+  order_id               Int           @id @default(autoincrement())
+  order_customer         Customer      @relation(fields: [order_customerId], references: [customer_id])
+  order_customerId       Int
+  order_date             DateTime      @db.Date
+  order_shipmentSelected Boolean
+  order_shipment         Shipment      @relation(fields: [order_shipmentId], references: [shipment_id])
+  order_shipmentId       Int
+  content                Order_Product @relation(fields: [order_content], references: [order_id])
+  order_content          Int
+}
+
+model Shipment {
+  shipment_id   Int      @id @default(autoincrement())
+  shipment_date DateTime @db.Date
+  Order         Order[]
+}
+
+model Order_Product {
+  order_id   Int     @unique
+  product_id Int
+  Order      Order[]
+}
+
+model Product {
+  product_id Int @id @default(autoincrement())
 }
