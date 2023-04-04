@@ -24,13 +24,13 @@ model Customer {
   customer_firstName    String     @db.VarChar(255)
   customer_lastName     String     @db.VarChar(255)
   customer_tel          String     @db.Char(50)
-  customer_city         City       @relation(fields: [customer_cityId], references: [city_id])
   customer_cityId       Int
-  customer_country      Country    @relation(fields: [customer_countryId], references: [country_id])
   customer_countryId    Int
-  customer_dateOfBirth  DateTime   @db.Date()
-  customer_loginData    loginDaten @relation(fields: [customer_loginDatenId], references: [id])
+  customer_dateOfBirth  DateTime   @db.Date
   customer_loginDatenId Int
+  customer_city         City       @relation(fields: [customer_cityId], references: [city_id])
+  customer_country      Country    @relation(fields: [customer_countryId], references: [country_id])
+  customer_loginData    loginDaten @relation(fields: [customer_loginDatenId], references: [id])
   Order                 Order[]
 }
 
@@ -43,14 +43,14 @@ model loginDaten {
 
 model Order {
   order_id               Int           @id @default(autoincrement())
-  order_customer         Customer      @relation(fields: [order_customerId], references: [customer_id])
   order_customerId       Int
   order_date             DateTime      @db.Date
   order_shipmentSelected Boolean
-  order_shipment         Shipment      @relation(fields: [order_shipmentId], references: [shipment_id])
   order_shipmentId       Int
-  content                Order_Product @relation(fields: [order_content], references: [order_id])
   order_content          Int
+  content                Order_Product @relation(fields: [order_content], references: [order_id])
+  order_customer         Customer      @relation(fields: [order_customerId], references: [customer_id])
+  order_shipment         Shipment      @relation(fields: [order_shipmentId], references: [shipment_id])
 }
 
 model Shipment {
@@ -66,5 +66,20 @@ model Order_Product {
 }
 
 model Product {
-  product_id Int @id @default(autoincrement())
+  product_id           Int      @id @default(autoincrement())
+  product_name         String   @db.VarChar(255)
+  product_description  String   @db.VarChar(1000)
+  product_category     Int
+  product_brand        String   @db.VarChar(255)
+  product_image_url    String   @db.VarChar(255)
+  product_liter        Float
+  product_creationDate DateTime @db.Date
+  product_lastModified DateTime @db.Date
+  category             Category @relation(fields: [product_category], references: [category_id])
+}
+
+model Category {
+  category_id   Int       @id @default(autoincrement())
+  category_name String    @db.VarChar(255)
+  Product       Product[]
 }
