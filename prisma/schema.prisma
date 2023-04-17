@@ -67,4 +67,10 @@ model Order_Product {
 
 model Product {
   product_id Int @id @default(autoincrement())
+  product_name String @db.VarChar(255)
+  product_price Int @db.Integer
+  product_description String @db.Text
+  product_liter Float @db.Real
+  product_addDate DateTime @db.Date
+  product_lastModified DateTime @db.Date
 }

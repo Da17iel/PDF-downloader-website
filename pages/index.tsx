@@ -10,7 +10,6 @@ export default function Home() {
         <Title />
         <SubSection />
       </div>
-      {/* <Image src={""} fill alt="water"/> */}
     </>
   )
 }
