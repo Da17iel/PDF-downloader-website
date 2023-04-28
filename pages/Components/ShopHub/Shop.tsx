@@ -1,11 +1,10 @@
 import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
-import prisma from "@/prismaClient";
 import { Product } from "@/types/product-types";
 
 interface Props {
-  data: Product[];
+  data: Product;
 }
 
 const Shop = ({ data }: Props) => {
@@ -16,7 +15,7 @@ const Shop = ({ data }: Props) => {
       ">
         <NavBar />
           <ul>
-            <li key={data[0].product_id} className="h-20 w-36 text-white">{data[0].product_name}</li>
+            <li key={data.product_id} className="h-20 w-36 text-white">{data.product_name}</li>
           </ul>
         <Footer />
       </div>

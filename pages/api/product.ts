@@ -21,7 +21,7 @@ export default async function GetProduct(
   try {
     const result = await client.query('SELECT * FROM "Product" WHERE product_id = 1;');
 
-    res.status(200).json(result.rows);
+    res.status(200).json(result.rows[0]);
   } finally {
     client.release();
   }
