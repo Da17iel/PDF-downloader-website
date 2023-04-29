@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="max-h-20 max-w-full bg-transparent flex justify-center items-center gap-10 font-semibold">
+      <div className="relative max-h-20 max-w-full bg-transparent flex justify-center items-center gap-10 font-semibold">
         <p>Watery Water © 2023</p>
         <Link href={"/Agb"}>AGB</Link>
         <Link href={"/Impressum"}>Impresssum</Link>

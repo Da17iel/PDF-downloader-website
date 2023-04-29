@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Product } from "@/types/product-types";
 import { Pool } from 'pg';
 
 const pgPort: number | undefined = parseInt(process.env.PG_PORT || '', 10);
@@ -19,7 +18,8 @@ export default async function GetProduct(
   const client = await pool.connect();
 
   try {
-    const result = await client.query('SELECT * FROM "Product" WHERE product_id = 1;');
+    const { getProduct } = req.query;
+    const result = await client.query(`SELECT * FROM "Product" WHERE product_id = ${getProduct}`);
 
     res.status(200).json(result.rows);
   } finally {
