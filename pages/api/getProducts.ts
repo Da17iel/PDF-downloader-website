@@ -20,7 +20,7 @@ export default async function GetProduct(
   try {
     const result = await client.query('SELECT * FROM "Product";');
 
-    res.status(200).json(result.rows[0]);
+    res.status(200).json(result.rows);
   } finally {
     client.release();
   }

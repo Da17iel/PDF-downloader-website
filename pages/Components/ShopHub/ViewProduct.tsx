@@ -12,13 +12,26 @@ const ViewProduct = ({ product }: Props) => {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto h-screen grid grid-cols-4 grid-rows-8">
-        <div className="col-span-3 row-span-5 bg-red-500"></div>
-        <div className="col-span-1 row-span-5 bg-green-500 flex justify-center items-center flex-col">
-          <h1 key={prod.product_id} className="font-bold text-3xl">{prod.product_name}</h1>
-          <p key={prod.product_id} className="font-semibold text-3xl text-red-500">{`${prod.product_price}.-`}</p>
+      <div className="container mx-auto h-[95vh] grid grid-cols-4 grid-rows-8 gap-4 mt-2">
+        <div className="col-span-3 row-span-5 flex justify-center items-center shadow-lg rounded-lg">
+          <div className="h-3/4 w-3/4 bg-gray-200"></div>
         </div>
-        <div className="col-span-4 row-span-3 bg-blue-500"></div>
+        <div className="col-span-1 row-span-5 shadow-lg rounded-lg">
+          <div className="h-1/2 flex items-center">
+            <div className=" ml-[1rem]">
+              <span key={prod.product_id} className="text-red-500 font-semibold text-2xl ">{`${prod.product_price}.-`}</span>
+              <h1 key={prod.product_id} className="font-bold text-4xl">{prod.product_name}</h1>
+              <p key={prod.product_id} className="h-55 w-2/3 break-words">
+                {prod.product_description}
+              </p>
+            </div>
+          </div>
+          <span></span>
+          <div className="h-1/2 flex justify-center items-end pb-20">
+            <button type="button" className=" h-12 w-11/12 rounded-lg text-white bg-gradient-to-r from-blue-500 to-cyan-300">Add to Cart</button>
+          </div>
+        </div>
+        <div className="col-span-4 row-span-3 shadow-lg rounded-lg mb-2"></div>
       </div>
       <Footer />
     </>
